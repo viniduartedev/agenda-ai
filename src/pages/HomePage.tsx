@@ -17,7 +17,7 @@ export function HomePage() {
         <div className="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6">
           <p className="text-sm font-medium text-slate-500">Link de demonstração</p>
           <Link
-            to="/agendar/devtec-barbearia"
+            to="/agendar/clinica-devtec"
             className="mt-3 inline-flex rounded-2xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
           >
             Abrir agendamento demo

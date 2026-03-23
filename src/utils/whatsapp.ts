@@ -5,6 +5,17 @@ export function normalizePhone(phone: string) {
   return phone.replace(/\D/g, '');
 }
 
+export function buildDirectWhatsappLink(phone: string, text?: string) {
+  const normalizedPhone = normalizePhone(phone);
+  if (!normalizedPhone) {
+    return '';
+  }
+
+  return text
+    ? `https://wa.me/${normalizedPhone}?text=${encodeURIComponent(text)}`
+    : `https://wa.me/${normalizedPhone}`;
+}
+
 export function buildWhatsappMessage(params: {
   tenant: Tenant;
   service: ServiceItem;
@@ -24,7 +35,5 @@ export function buildWhatsappLink(params: {
   service: ServiceItem;
   appointment: Appointment;
 }) {
-  const phone = normalizePhone(params.tenant.whatsapp);
-  const text = encodeURIComponent(buildWhatsappMessage(params));
-  return `https://wa.me/${phone}?text=${text}`;
+  return buildDirectWhatsappLink(params.tenant.whatsapp, buildWhatsappMessage(params));
 }

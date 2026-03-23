@@ -29,12 +29,13 @@ export function BookingForm({ values, loading, error, onChange, onSubmit }: Book
 
   return (
     <form className="space-y-5" onSubmit={handleSubmit}>
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
           <span className="mb-2 block text-sm font-medium text-slate-700">Nome</span>
           <input
             required
             name="customerName"
+            autoComplete="name"
             value={values.customerName}
             onChange={handleChange}
             className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-tenant-primary"
@@ -46,6 +47,8 @@ export function BookingForm({ values, loading, error, onChange, onSubmit }: Book
           <input
             required
             name="customerPhone"
+            autoComplete="tel"
+            inputMode="tel"
             value={values.customerPhone}
             onChange={handleChange}
             className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-tenant-primary"
@@ -59,7 +62,7 @@ export function BookingForm({ values, loading, error, onChange, onSubmit }: Book
           name="notes"
           value={values.notes}
           onChange={handleChange}
-          rows={4}
+          rows={3}
           className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 outline-none transition focus:border-tenant-primary"
           placeholder="Alguma informação adicional para o atendimento?"
         />
@@ -72,7 +75,7 @@ export function BookingForm({ values, loading, error, onChange, onSubmit }: Book
         disabled={loading}
         className="inline-flex w-full items-center justify-center rounded-2xl bg-tenant-primary px-5 py-4 text-base font-semibold text-tenant-text shadow-lg transition hover:brightness-95 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        {loading ? 'Confirmando agendamento...' : 'Confirmar agendamento'}
+        {loading ? 'Enviando solicitação...' : 'Solicitar agendamento'}
       </button>
     </form>
   );

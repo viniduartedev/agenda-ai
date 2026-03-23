@@ -12,6 +12,11 @@ function minutesToTime(totalMinutes: number) {
   return `${hours}:${minutes}`;
 }
 
+export interface TimeSlotOption {
+  time: string;
+  available: boolean;
+}
+
 export function generateTimeSlots(hours: BusinessHours[]) {
   return hours.flatMap((block) => {
     const start = timeToMinutes(block.startTime);
@@ -26,11 +31,11 @@ export function generateTimeSlots(hours: BusinessHours[]) {
   });
 }
 
-export function getAvailableSlots(params: {
+export function getTimeSlots(params: {
   date: string;
   businessHours: BusinessHours[];
   appointments: Appointment[];
-}) {
+}): TimeSlotOption[] {
   const weekday = getWeekday(params.date);
   const activeHours = params.businessHours.filter((item) => item.active && item.weekday === weekday);
 
@@ -46,5 +51,18 @@ export function getAvailableSlots(params: {
 
   return [...new Set(generateTimeSlots(activeHours))]
     .sort((a, b) => timeToMinutes(a) - timeToMinutes(b))
-    .filter((time) => !occupied.has(time));
+    .map((time) => ({
+      time,
+      available: !occupied.has(time),
+    }));
+}
+
+export function getAvailableSlots(params: {
+  date: string;
+  businessHours: BusinessHours[];
+  appointments: Appointment[];
+}) {
+  return getTimeSlots(params)
+    .filter((slot) => slot.available)
+    .map((slot) => slot.time);
 }

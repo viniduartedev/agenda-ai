@@ -1,0 +1,169 @@
+[debug] [2026-03-21T22:01:39.128Z] ----------------------------------------------------------------------
+[debug] [2026-03-21T22:01:39.129Z] Command:       /home/vinicius/.nvm/versions/node/v20.19.5/bin/node /home/vinicius/.nvm/versions/node/v20.19.5/bin/firebase deploy --only hosting --project agendamento-ai-9fbfb --non-interactive
+[debug] [2026-03-21T22:01:39.130Z] CLI Version:   15.1.0
+[debug] [2026-03-21T22:01:39.130Z] Platform:      linux
+[debug] [2026-03-21T22:01:39.130Z] Node Version:  v20.19.5
+[debug] [2026-03-21T22:01:39.130Z] Time:          Sat Mar 21 2026 19:01:39 GMT-0300 (Brasilia Standard Time)
+[debug] [2026-03-21T22:01:39.130Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-21T22:01:39.912Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-21T22:01:39.913Z] > authorizing via signed-in user (viniciusduartedev@gmail.com)
+[debug] [2026-03-21T22:01:39.913Z] [iam] checking project agendamento-ai-9fbfb for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2026-03-21T22:01:39.914Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:39.914Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:39.915Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions [none]
+[debug] [2026-03-21T22:01:39.915Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions x-goog-quota-user=projects/agendamento-ai-9fbfb
+[debug] [2026-03-21T22:01:39.916Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-21T22:01:40.810Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions 200
+[debug] [2026-03-21T22:01:40.810Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2026-03-21T22:01:40.811Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:40.811Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:40.811Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/agendamento-ai-9fbfb [none]
+[debug] [2026-03-21T22:01:41.277Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/agendamento-ai-9fbfb 200
+[debug] [2026-03-21T22:01:41.278Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/agendamento-ai-9fbfb {"projectId":"agendamento-ai-9fbfb","projectNumber":"1036033907338","displayName":"agendamento-ai","name":"projects/agendamento-ai-9fbfb","resources":{"hostingSite":"agendamento-ai-9fbfb"},"state":"ACTIVE","etag":"1_2f72517f-f430-46ab-8000-7e055c3ef417"}
+[info] 
+[info] === Deploying to 'agendamento-ai-9fbfb'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2026-03-21T22:01:41.280Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:41.280Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:41.281Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions [none]
+[debug] [2026-03-21T22:01:41.281Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2026-03-21T22:01:43.027Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions 200
+[debug] [2026-03-21T22:01:43.027Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions {"name":"projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[agendamento-ai-9fbfb]: beginning deploy... 
+[info] i  hosting[agendamento-ai-9fbfb]: found 3 files in dist 
+[debug] [2026-03-21T22:01:43.042Z] [hosting] uploading with 200 concurrency
+[debug] [2026-03-21T22:01:43.067Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.067Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.068Z] [hosting] hash cache [ZGlzdA] stored for 3 files
+[debug] [2026-03-21T22:01:43.068Z] [hosting][hash queue][FINAL] {"max":23,"min":4,"avg":10.666666666666666,"active":0,"complete":3,"success":3,"errored":0,"retried":0,"total":3,"elapsed":25}
+[debug] [2026-03-21T22:01:43.069Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40:populateFiles [none]
+[debug] [2026-03-21T22:01:43.069Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40:populateFiles {"files":{"/index.html":"cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf","/assets/index-CBiLjJ1u.css":"322cc1ce121c04cdbcbd8cb13c312daa5a9618ad2cd756ef634e546e1fd3fa10","/assets/index-CQQuJgQr.js":"16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409"}}
+[debug] [2026-03-21T22:01:43.806Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40:populateFiles 200
+[debug] [2026-03-21T22:01:43.806Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40:populateFiles {"uploadRequiredHashes":["16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409","cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files"}
+[debug] [2026-03-21T22:01:43.806Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.806Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.807Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.807Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:43.807Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409 [none]
+[debug] [2026-03-21T22:01:43.807Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409 [stream]
+[debug] [2026-03-21T22:01:43.808Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf [none]
+[debug] [2026-03-21T22:01:43.808Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf [stream]
+[debug] [2026-03-21T22:01:43.809Z] [hosting][populate queue][FINAL] {"max":740,"min":740,"avg":740,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":742}
+[debug] [2026-03-21T22:01:43.809Z] [hosting] uploads queued: 2
+[info] i  hosting: uploading new files [0/2] (0%) 
+[debug] [2026-03-21T22:01:45.157Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf 200
+[debug] [2026-03-21T22:01:45.157Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/cc29353c303fa101d64d3ce6427de1e077b9e1fb3228c893f532bb679d25adaf [stream]
+[debug] [2026-03-21T22:01:45.548Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409 200
+[debug] [2026-03-21T22:01:45.548Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40/files/16716dbabf0ee3587447577bbc026743fb7ad73de762984d1fe465843614a409 [stream]
+[debug] [2026-03-21T22:01:45.549Z] [hosting][upload queue][FINAL] {"max":1742,"min":1351,"avg":1546.5,"active":0,"complete":2,"success":2,"errored":0,"retried":0,"total":2,"elapsed":1743}
+[info] i  hosting: upload complete 
+[info] ✔  hosting[agendamento-ai-9fbfb]: file upload complete 
+[debug] [2026-03-21T22:01:45.549Z] [hosting] deploy completed after 2519ms
+[debug] [2026-03-21T22:01:45.549Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "agendamento-ai-9fbfb"
+    },
+    "version": "projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40"
+  }
+]
+[info] i  hosting[agendamento-ai-9fbfb]: finalizing version... 
+[debug] [2026-03-21T22:01:45.551Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:45.551Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:45.552Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40 updateMask=status%2Cconfig
+[debug] [2026-03-21T22:01:45.552Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2026-03-21T22:01:46.216Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40 200
+[debug] [2026-03-21T22:01:46.216Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40 {"name":"projects/1036033907338/sites/agendamento-ai-9fbfb/versions/70ba41ec4bf2fe40","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2026-03-21T22:01:42.357363Z","createUser":{"email":"viniciusduartedev@gmail.com"},"finalizeTime":"2026-03-21T22:01:46.046499Z","finalizeUser":{"email":"viniciusduartedev@gmail.com"}}
+[debug] [2026-03-21T22:01:46.216Z] [hosting] finalized version for agendamento-ai-9fbfb:[object Object]
+[info] ✔  hosting[agendamento-ai-9fbfb]: version finalized 
+[info] i  hosting[agendamento-ai-9fbfb]: releasing new version... 
+[debug] [2026-03-21T22:01:46.217Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:46.217Z] Checked if tokens are valid: true, expires at: 1774132998620
+[debug] [2026-03-21T22:01:46.217Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/channels/live/releases versionName=projects%2F1036033907338%2Fsites%2Fagendamento-ai-9fbfb%2Fversions%2F70ba41ec4bf2fe40
+[debug] [2026-03-21T22:01:46.217Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/channels/live/releases {}
+[debug] [2026-03-21T22:01:46.902Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/agendamento-ai-9fbfb/channels/live/releases 200
+[debug] [2026-03-23T17:07:16.922Z] ----------------------------------------------------------------------
+[debug] [2026-03-23T17:07:16.924Z] Command:       /home/vinicius/.nvm/versions/node/v20.19.5/bin/node /home/vinicius/.nvm/versions/node/v20.19.5/bin/firebase deploy --only firestore:rules
+[debug] [2026-03-23T17:07:16.925Z] CLI Version:   15.1.0
+[debug] [2026-03-23T17:07:16.925Z] Platform:      linux
+[debug] [2026-03-23T17:07:16.925Z] Node Version:  v20.19.5
+[debug] [2026-03-23T17:07:16.925Z] Time:          Mon Mar 23 2026 14:07:16 GMT-0300 (Brasilia Standard Time)
+[debug] [2026-03-23T17:07:16.925Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2026-03-23T17:07:16.927Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2026-03-23T17:07:18.310Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2026-03-23T17:07:18.311Z] > authorizing via signed-in user (viniciusduartedev@gmail.com)
+[debug] [2026-03-23T17:07:18.311Z] [iam] checking project agendamento-ai-9fbfb for permissions ["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]
+[debug] [2026-03-23T17:07:18.312Z] Checked if tokens are valid: false, expires at: 1774132998620
+[debug] [2026-03-23T17:07:18.312Z] Checked if tokens are valid: false, expires at: 1774132998620
+[debug] [2026-03-23T17:07:18.312Z] > refreshing access token with scopes: []
+[debug] [2026-03-23T17:07:18.313Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2026-03-23T17:07:18.313Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-23T17:07:18.834Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2026-03-23T17:07:18.835Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2026-03-23T17:07:18.841Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions [none]
+[debug] [2026-03-23T17:07:18.841Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions x-goog-quota-user=projects/agendamento-ai-9fbfb
+[debug] [2026-03-23T17:07:18.841Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[debug] [2026-03-23T17:07:18.939Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2026-03-23T17:07:18.939Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2026-03-23T17:07:19.766Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions 200
+[debug] [2026-03-23T17:07:19.766Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/agendamento-ai-9fbfb:testIamPermissions {"permissions":["datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get"]}
+[info] 
+[info] === Deploying to 'agendamento-ai-9fbfb'...
+[info] 
+[info] i  deploying firestore 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[info] i  firestore: ensuring required API firestore.googleapis.com is enabled... 
+[debug] [2026-03-23T17:07:19.769Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:19.769Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:19.769Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/agendamento-ai-9fbfb/databases/(default) [none]
+[debug] [2026-03-23T17:07:20.067Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/agendamento-ai-9fbfb/databases/(default) 200
+[debug] [2026-03-23T17:07:20.067Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/agendamento-ai-9fbfb/databases/(default) {"name":"projects/agendamento-ai-9fbfb/databases/(default)","uid":"02d9666a-ae5c-4731-a3d3-8a78348d1607","createTime":"2026-03-20T12:57:32.278134Z","updateTime":"2026-03-20T12:57:32.278134Z","locationId":"southamerica-east1","type":"FIRESTORE_NATIVE","concurrencyMode":"PESSIMISTIC","versionRetentionPeriod":"3600s","earliestVersionTime":"2026-03-23T16:07:20.045921Z","appEngineIntegrationMode":"DISABLED","keyPrefix":"i","pointInTimeRecoveryEnablement":"POINT_IN_TIME_RECOVERY_DISABLED","deleteProtectionState":"DELETE_PROTECTION_DISABLED","databaseEdition":"STANDARD","freeTier":true,"realtimeUpdatesMode":"REALTIME_UPDATES_MODE_ENABLED","etag":"IIWkuIrBtpMDMKuG89vDrpMD"}
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2026-03-23T17:07:20.068Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:20.068Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:20.069Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb:test [none]
+[debug] [2026-03-23T17:07:20.069Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb:test [omitted]
+[debug] [2026-03-23T17:07:25.604Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb:test 200
+[debug] [2026-03-23T17:07:25.604Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb:test {"issues":[{"sourcePosition":{"fileName":"firestore.rules","line":17,"column":14,"currentOffset":471,"endOffset":485},"description":"Unused function: isAllowedStatus.","severity":"WARNING"}]}
+[warn] ⚠  [W] 17:14 - Unused function: isAllowedStatus. 
+[info] ✔  cloud.firestore: rules file firestore.rules compiled successfully 
+[debug] [2026-03-23T17:07:25.605Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:25.605Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:25.606Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases pageSize=10&pageToken=
+[debug] [2026-03-23T17:07:26.752Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases 200
+[debug] [2026-03-23T17:07:26.752Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases {"releases":[{"name":"projects/agendamento-ai-9fbfb/releases/cloud.firestore","rulesetName":"projects/agendamento-ai-9fbfb/rulesets/f97e1f8e-3044-4c36-b468-f2e7e4d70ccf","createTime":"2026-03-20T12:57:36.660533Z","updateTime":"2026-03-21T21:43:56.855543Z"}]}
+[debug] [2026-03-23T17:07:26.753Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:26.753Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:26.753Z] >>> [apiv2][query] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets/f97e1f8e-3044-4c36-b468-f2e7e4d70ccf [none]
+[debug] [2026-03-23T17:07:27.852Z] <<< [apiv2][status] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets/f97e1f8e-3044-4c36-b468-f2e7e4d70ccf 200
+[debug] [2026-03-23T17:07:27.852Z] <<< [apiv2][body] GET https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets/f97e1f8e-3044-4c36-b468-f2e7e4d70ccf [omitted]
+[info] i  firestore: uploading rules firestore.rules... 
+[debug] [2026-03-23T17:07:27.853Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:27.853Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:27.853Z] >>> [apiv2][query] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets [none]
+[debug] [2026-03-23T17:07:27.853Z] >>> [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets [omitted]
+[debug] [2026-03-23T17:07:29.108Z] <<< [apiv2][status] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets 200
+[debug] [2026-03-23T17:07:29.109Z] <<< [apiv2][body] POST https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/rulesets {"name":"projects/agendamento-ai-9fbfb/rulesets/f8b93df4-5220-4944-82d1-d20284768e12","source":{"files":[{"content":"rules_version = '2';\n\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    function isNonEmptyString(value, maxLength) {\n      return value is string && value.size() > 0 && value.size() <= maxLength;\n    }\n\n    function isIsoDate(value) {\n      return value is string && value.matches('^\\\\d{4}-\\\\d{2}-\\\\d{2}$');\n    }\n\n    function isHourMinute(value) {\n      return value is string && value.matches('^([01]\\\\d|2[0-3]):[0-5]\\\\d$');\n    }\n\n    function isAllowedStatus(value) {\n      return value == 'pending' || value == 'confirmed' || value == 'cancelled';\n    }\n\n    function tenantIsActive(tenantId) {\n      return exists(/databases/$(database)/documents/tenants/$(tenantId))\n        && get(/databases/$(database)/documents/tenants/$(tenantId)).data.active == true;\n    }\n\n    function serviceBelongsToTenant(serviceId, tenantId) {\n      return exists(/databases/$(database)/documents/services/$(serviceId))\n        && get(/databases/$(database)/documents/services/$(serviceId)).data.tenantId == tenantId\n        && get(/databases/$(database)/documents/services/$(serviceId)).data.active == true;\n    }\n\n    function hasOnlyKeys(data, allowedKeys) {\n      return data.keys().hasAll(allowedKeys) && data.keys().hasOnly(allowedKeys);\n    }\n\n    function isValidPublicAppointment(data) {\n      return hasOnlyKeys(data, ['tenantId', 'date', 'time', 'status', 'createdAt', 'updatedAt'])\n        && isNonEmptyString(data.tenantId, 120)\n        && tenantIsActive(data.tenantId)\n        && isIsoDate(data.date)\n        && isHourMinute(data.time)\n        && data.status == 'pending'\n        && data.createdAt is timestamp\n        && data.updatedAt is timestamp;\n    }\n\n    function isValidAppointment(data) {\n      return hasOnlyKeys(\n          data,\n          [\n            'tenantId',\n            'serviceId',\n            'serviceNameSnapshot',\n            'date',\n            'time',\n            'customerName',\n            'customerPhone',\n            'notes',\n            'status',\n            'createdAt',\n            'updatedAt'\n          ]\n        )\n        && isNonEmptyString(data.tenantId, 120)\n        && tenantIsActive(data.tenantId)\n        && isNonEmptyString(data.serviceId, 120)\n        && serviceBelongsToTenant(data.serviceId, data.tenantId)\n        && isNonEmptyString(data.serviceNameSnapshot, 120)\n        && isIsoDate(data.date)\n        && isHourMinute(data.time)\n        && isNonEmptyString(data.customerName, 120)\n        && isNonEmptyString(data.customerPhone, 20)\n        && data.customerPhone.matches('^\\\\d{10,15}$')\n        && data.notes is string\n        && data.notes.size() <= 500\n        && data.status == 'pending'\n        && data.createdAt is timestamp\n        && data.updatedAt is timestamp;\n    }\n\n    match /tenants/{tenantId} {\n      allow get, list: if resource.data.active == true;\n      allow create, update, delete: if false;\n    }\n\n    match /services/{serviceId} {\n      allow get, list: if resource.data.active == true && tenantIsActive(resource.data.tenantId);\n      allow create, update, delete: if false;\n    }\n\n    match /businessHours/{businessHoursId} {\n      allow get, list: if resource.data.active == true && tenantIsActive(resource.data.tenantId);\n      allow create, update, delete: if false;\n    }\n\n    match /publicAppointments/{appointmentId} {\n      allow get, list: if tenantIsActive(resource.data.tenantId);\n\n      allow create: if isValidPublicAppointment(request.resource.data)\n        && existsAfter(/databases/$(database)/documents/appointments/$(appointmentId))\n        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.tenantId == request.resource.data.tenantId\n        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.date == request.resource.data.date\n        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.time == request.resource.data.time\n        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.status == request.resource.data.status;\n\n      allow update, delete: if false;\n    }\n\n    match /appointments/{appointmentId} {\n      allow get, list, update, delete: if false;\n\n      allow create: if isValidAppointment(request.resource.data)\n        && existsAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId))\n        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.tenantId == request.resource.data.tenantId\n        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.date == request.resource.data.date\n        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.time == request.resource.data.time\n        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.status == request.resource.data.status;\n    }\n  }\n}\n","name":"firestore.rules"}]},"createTime":"2026-03-23T17:07:28.962783Z","metadata":{"services":["cloud.firestore"]}}
+[debug] [2026-03-23T17:07:29.109Z] [rules] created ruleset projects/agendamento-ai-9fbfb/rulesets/f8b93df4-5220-4944-82d1-d20284768e12
+[debug] [2026-03-23T17:07:29.109Z] [rules] releasing cloud.firestore/(default) with ruleset projects/agendamento-ai-9fbfb/rulesets/f8b93df4-5220-4944-82d1-d20284768e12
+[debug] [2026-03-23T17:07:29.109Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:29.109Z] Checked if tokens are valid: true, expires at: 1774289237835
+[debug] [2026-03-23T17:07:29.110Z] >>> [apiv2][query] PATCH https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases/cloud.firestore/(default) [none]
+[debug] [2026-03-23T17:07:29.110Z] >>> [apiv2][body] PATCH https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases/cloud.firestore/(default) {"release":{"name":"projects/agendamento-ai-9fbfb/releases/cloud.firestore/(default)","rulesetName":"projects/agendamento-ai-9fbfb/rulesets/f8b93df4-5220-4944-82d1-d20284768e12"}}
+[debug] [2026-03-23T17:07:29.582Z] <<< [apiv2][status] PATCH https://firebaserules.googleapis.com/v1/projects/agendamento-ai-9fbfb/releases/cloud.firestore/(default) 200

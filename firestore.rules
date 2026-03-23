@@ -1,0 +1,120 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isNonEmptyString(value, maxLength) {
+      return value is string && value.size() > 0 && value.size() <= maxLength;
+    }
+
+    function isIsoDate(value) {
+      return value is string && value.matches('^\\d{4}-\\d{2}-\\d{2}$');
+    }
+
+    function isHourMinute(value) {
+      return value is string && value.matches('^([01]\\d|2[0-3]):[0-5]\\d$');
+    }
+
+    function isAllowedStatus(value) {
+      return value == 'pending' || value == 'confirmed' || value == 'cancelled';
+    }
+
+    function tenantIsActive(tenantId) {
+      return exists(/databases/$(database)/documents/tenants/$(tenantId))
+        && get(/databases/$(database)/documents/tenants/$(tenantId)).data.active == true;
+    }
+
+    function serviceBelongsToTenant(serviceId, tenantId) {
+      return exists(/databases/$(database)/documents/services/$(serviceId))
+        && get(/databases/$(database)/documents/services/$(serviceId)).data.tenantId == tenantId
+        && get(/databases/$(database)/documents/services/$(serviceId)).data.active == true;
+    }
+
+    function hasOnlyKeys(data, allowedKeys) {
+      return data.keys().hasAll(allowedKeys) && data.keys().hasOnly(allowedKeys);
+    }
+
+    function isValidPublicAppointment(data) {
+      return hasOnlyKeys(data, ['tenantId', 'date', 'time', 'status', 'createdAt', 'updatedAt'])
+        && isNonEmptyString(data.tenantId, 120)
+        && tenantIsActive(data.tenantId)
+        && isIsoDate(data.date)
+        && isHourMinute(data.time)
+        && data.status == 'pending'
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidAppointment(data) {
+      return hasOnlyKeys(
+          data,
+          [
+            'tenantId',
+            'serviceId',
+            'serviceNameSnapshot',
+            'date',
+            'time',
+            'customerName',
+            'customerPhone',
+            'notes',
+            'status',
+            'createdAt',
+            'updatedAt'
+          ]
+        )
+        && isNonEmptyString(data.tenantId, 120)
+        && tenantIsActive(data.tenantId)
+        && isNonEmptyString(data.serviceId, 120)
+        && serviceBelongsToTenant(data.serviceId, data.tenantId)
+        && isNonEmptyString(data.serviceNameSnapshot, 120)
+        && isIsoDate(data.date)
+        && isHourMinute(data.time)
+        && isNonEmptyString(data.customerName, 120)
+        && isNonEmptyString(data.customerPhone, 20)
+        && data.customerPhone.matches('^\\d{10,15}$')
+        && data.notes is string
+        && data.notes.size() <= 500
+        && data.status == 'pending'
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    match /tenants/{tenantId} {
+      allow get, list: if resource.data.active == true;
+      allow create, update, delete: if false;
+    }
+
+    match /services/{serviceId} {
+      allow get, list: if resource.data.active == true && tenantIsActive(resource.data.tenantId);
+      allow create, update, delete: if false;
+    }
+
+    match /businessHours/{businessHoursId} {
+      allow get, list: if resource.data.active == true && tenantIsActive(resource.data.tenantId);
+      allow create, update, delete: if false;
+    }
+
+    match /publicAppointments/{appointmentId} {
+      allow get, list: if tenantIsActive(resource.data.tenantId);
+
+      allow create: if isValidPublicAppointment(request.resource.data)
+        && existsAfter(/databases/$(database)/documents/appointments/$(appointmentId))
+        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.tenantId == request.resource.data.tenantId
+        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.date == request.resource.data.date
+        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.time == request.resource.data.time
+        && getAfter(/databases/$(database)/documents/appointments/$(appointmentId)).data.status == request.resource.data.status;
+
+      allow update, delete: if false;
+    }
+
+    match /appointments/{appointmentId} {
+      allow get, list, update, delete: if false;
+
+      allow create: if isValidAppointment(request.resource.data)
+        && existsAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId))
+        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.tenantId == request.resource.data.tenantId
+        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.date == request.resource.data.date
+        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.time == request.resource.data.time
+        && getAfter(/databases/$(database)/documents/publicAppointments/$(appointmentId)).data.status == request.resource.data.status;
+    }
+  }
+}

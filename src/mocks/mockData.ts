@@ -1,9 +1,9 @@
 import type { Appointment, BusinessHours, ServiceItem, Tenant } from '@/types/domain';
 
 export const mockTenant: Tenant = {
-  id: 'tenant-devtec-barbearia',
-  name: 'DevTec Barbearia Studio',
-  slug: 'devtec-barbearia',
+  id: 'tenant-clinica-devtec',
+  name: 'Clinica DevTec',
+  slug: 'clinica-devtec',
   whatsapp: '5511999999999',
   active: true,
   theme: {

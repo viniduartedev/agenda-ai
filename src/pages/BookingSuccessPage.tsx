@@ -1,6 +1,8 @@
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { PublicShell } from '@/components/layout/PublicShell';
+import { FloatingWhatsappButton } from '@/components/scheduling/FloatingWhatsappButton';
 import type { BookingSuccessState } from '@/types/domain';
+import { getAppointmentStatusLabel } from '@/utils/appointmentStatus';
 import { formatShortDate } from '@/utils/date';
 import { buildWhatsappLink } from '@/utils/whatsapp';
 
@@ -13,6 +15,7 @@ export function BookingSuccessPage() {
   }
 
   const whatsappLink = buildWhatsappLink(state);
+  const initialStatusLabel = getAppointmentStatusLabel(state.appointment.status);
 
   return (
     <PublicShell>
@@ -22,7 +25,7 @@ export function BookingSuccessPage() {
         </div>
         <h1 className="mt-6 text-4xl font-semibold tracking-tight text-slate-950">Agendamento enviado com sucesso!</h1>
         <p className="mt-4 text-lg leading-8 text-slate-600">
-          Seu pedido foi registrado com status inicial <strong>pending</strong>. Agora você pode confirmar os detalhes rapidamente pelo WhatsApp.
+          Seu pedido foi registrado com status inicial <strong>{initialStatusLabel}</strong>. Agora você pode confirmar os detalhes rapidamente pelo WhatsApp.
         </p>
 
         <div className="mt-10 grid gap-4 rounded-3xl border border-slate-100 bg-slate-50 p-6 sm:grid-cols-2">
@@ -30,6 +33,7 @@ export function BookingSuccessPage() {
           <SuccessItem label="Serviço" value={state.service.name} />
           <SuccessItem label="Data" value={formatShortDate(state.appointment.date)} />
           <SuccessItem label="Horário" value={state.appointment.time} />
+          <SuccessItem label="Status" value={initialStatusLabel} />
           <SuccessItem label="Cliente" value={state.appointment.customerName} />
           <SuccessItem label="WhatsApp" value={state.appointment.customerPhone} />
         </div>
@@ -51,6 +55,7 @@ export function BookingSuccessPage() {
           </Link>
         </div>
       </div>
+      <FloatingWhatsappButton href={whatsappLink} label="Abrir WhatsApp para confirmar agendamento" />
     </PublicShell>
   );
 }
